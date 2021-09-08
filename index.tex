@@ -1,0 +1,46 @@
+%! Author = adriangorisch
+%! Date = 08.09.21
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\documentclass[12pt,DIV12,BCOR0mm,twoside,openright,headings=normal,    numbers=noenddot,headsepline,headinclude]{scrreprt}
+\usepackage[automark,headsepline]{scrlayer-scrpage}
+\usepackage{scrhack}                % to avoid KOMA-Script warning
+\usepackage[utf8]{inputenc}         % UTF8 encoding
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}                % Postscript fonts
+\usepackage[ngerman,english]{babel}
+\usepackage[style=numeric-comp,giveninits=true,maxnames=10,sorting=none]{biblatex}
+\usepackage{graphicx}
+\usepackage[usenames]{xcolor}
+\usepackage[pdftex]{hyperref}
+\usepackage{wallpaper}
+
+\usepackage[newfloat]{minted}
+\usepackage{caption}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+\usemintedstyle{manni}
+
+% Document
+\begin{document}
+    this is my sample text and i want to reference \ref{code:update-a-attribute} and the image \ref{fig:image}
+    \begin{figure}[h]{}
+        \includegraphics[width=\textwidth]{./img.png}
+        \caption{some image}
+        \centering
+        \label{fig:image}
+    \end{figure}
+
+    \begin{code}
+        \captionof{listing}{Update a Attribute}
+        \label{code:update-a-attribute}
+        \begin{minted}{JavaScript}
+const fragment = document.querySelector(".fragment");
+fragment.setAttribute("data", 2)
+        \end{minted}
+    \end{code}
+
+\end{document}
